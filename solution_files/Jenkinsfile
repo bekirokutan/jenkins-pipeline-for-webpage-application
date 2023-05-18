@@ -4,9 +4,13 @@ pipeline {
     stages {
         stage('terraform infa create') {
             steps {
-                sh 'cd solution_files'
-                sh 'terraform init'
-                sh 'terraform apply --auto-approve'
+                sh """
+                cd solution_files
+                pwd
+                ls
+                terraform init
+                terraform apply --auto-approve
+                """
             }
         }
        
