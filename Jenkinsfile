@@ -18,7 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh """cd student_files/nodejs  
-                docker build --force-rm -t "$ECR_REGISTRY/$APP_REPO_NAME/nodejs:latest" .
+                docker build --force-rm -t "021189335138.dkr.ecr.us-east-1.amazonaws.com/golf/to-do-app/:latest" .
                 docker image ls
                 """
             }
