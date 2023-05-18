@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('terraform infa create') {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/proje208/solution_files'
+                sh 'terraform init'
+                sh 'terraform apply --auto-approve'
+            }
+        }
+       
+    }
+}
