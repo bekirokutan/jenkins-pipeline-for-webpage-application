@@ -6,5 +6,5 @@ tags = ["postgresql", "nodejs", "react"]
 instancetype = "t2.micro"
 num = 3
 region = "us-east-1"
-mysecgr = "ansible-project-207-sec-gr"
-user = "clarusway"
+mysecgr = "project-208-sec-gr"
+user = "okutan"
