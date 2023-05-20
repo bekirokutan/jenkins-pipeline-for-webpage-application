@@ -1,8 +1,8 @@
 pipeline{
     agent any
-    tools {
-        terraform 'terraform'
-    }
+    // tools {
+    //     terraform 'terraform'
+    // }
 
     environment {
         PATH=sh(script:"echo $PATH:/usr/local/bin", returnStdout:true).trim()
