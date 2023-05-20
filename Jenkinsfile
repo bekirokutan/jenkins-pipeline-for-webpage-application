@@ -108,7 +108,11 @@ pipeline{
                   --region ${AWS_REGION} \
                   --force
                 """
-            }
+                sh ''' 
+                cd s3bucket
+                terraform destroy --auto-approve
+                '''
+                }
         }
 
     }
@@ -129,6 +133,11 @@ pipeline{
                 """
             echo 'Deleting Terraform Stack due to the Failure'
                 sh 'terraform destroy --auto-approve'
+                sh ''' 
+                cd s3bucket
+                terraform destroy --auto-approve
+                '''
+
         }
     }
 }
