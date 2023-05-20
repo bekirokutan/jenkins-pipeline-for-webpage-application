@@ -6,6 +6,7 @@ terraform {
     }
   }
   backend "s3" {
+    depends_on = [aws_s3_bucket.my_bucket]
     bucket = "jenkins-project-backend-okutan"
     key = "backend/tf-backend-jenkins.tfstate"
     region = "us-east-1"
@@ -21,7 +22,7 @@ variable "tags" {
 }
 
 variable "user" {
-  default = "oliver"
+  default = "okutan"
 }
 
 resource "aws_s3_bucket" "my_bucket" {
@@ -31,7 +32,7 @@ resource "aws_instance" "managed_nodes" {
   ami = "ami-016eb5d644c333ccb"
   count = 3
   instance_type = "t2.micro"
-  key_name = "project-208"  # change with your pem file
+  key_name = "first-key"  # change with your pem file
   vpc_security_group_ids = [aws_security_group.tf-sec-gr.id]
   iam_instance_profile = "jenkins-project-profile-${var.user}" # we created this with jenkins server
   tags = {
