@@ -17,6 +17,11 @@ pipeline{
         stage('Create Infrastructure for the App') {
             steps {
                 echo 'Creating Infrastructure for the App on AWS Cloud'
+                sh '''
+                cd s3bucket
+                terraform init
+                terraform apply --auto-approve
+                '''
                 sh 'terraform init'
                 sh 'terraform apply --auto-approve'                
             }
