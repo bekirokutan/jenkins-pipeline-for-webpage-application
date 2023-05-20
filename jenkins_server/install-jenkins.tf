@@ -58,6 +58,24 @@ resource "aws_instance" "tf-jenkins-server" {
     Name = var.tag
   }
   user_data = file("jenkins.sh")
+
+
+}
+
+resource "null_resource" "config" {
+  depends_on = [aws_instance.tf-jenkins-server]
+  connection {
+    host = aws_instance.tf-jenkins-server.public_ip
+    type = "ssh"
+    user = "ec2-user"
+    private_key = file("~/.ssh/first-key.pem")
+    # Do not forget to define your key file path correctly!
+  }
+    provisioner "file" {
+    # Do not forget to define your key file path correctly!
+    source = "~/.ssh/first-key.pem"
+    destination = "/home/ec2-user/first-key.pem"
+  }
 }
 
 resource "aws_security_group" "tf-jenkins-sec-gr" {
