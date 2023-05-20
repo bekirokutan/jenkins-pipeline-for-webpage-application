@@ -6,7 +6,6 @@ terraform {
     }
   }
   backend "s3" {
-    depends_on = [aws_s3_bucket.my_bucket]
     bucket = "jenkins-project-backend-okutan"
     key = "backend/tf-backend-jenkins.tfstate"
     region = "us-east-1"
