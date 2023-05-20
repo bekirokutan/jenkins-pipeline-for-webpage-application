@@ -4,7 +4,7 @@
   vars:
     aws_region: us-east-1
     aws_account_id: ""
-    ecr_registry: {{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com
+    ecr_registry: "{{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com"
   tasks:
     - name: update all packages
       ansible.builtin.yum:
@@ -95,7 +95,7 @@
   vars:
     aws_account_id: ""
     container_name: postgre
-    image_name: {{ aws_account_id }}.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:postgre
+    image_name: "{{ aws_account_id }}.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:postgre"
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
@@ -126,7 +126,7 @@
   vars:
     aws_account_id: ""
     container_name: nodejs
-    image_name: {{ aws_account_id }}.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:nodejs
+    image_name: "{{ aws_account_id }}.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:nodejs"
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
@@ -153,7 +153,7 @@
   vars:
     aws_account_id: ""
     container_name: react
-    image_name: {{ aws_account_id }}.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:react
+    image_name: "{{ aws_account_id }}.dkr.ecr.us-east-1.amazonaws.com/clarusway-repo/cw-todo-app:react"
   tasks:
     - name: remove postgre container
       community.docker.docker_container:
