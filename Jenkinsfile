@@ -18,10 +18,7 @@ pipeline{
             steps {
                 echo 'Creating Infrastructure for the App on AWS Cloud'
                 sh 'terraform init'
-                sh 'terraform apply -target=aws_s3_bucket.my_bucket --auto-approve'
-                sh 'terraform apply --auto-approve'
-
-                
+                sh 'terraform apply --auto-approve'                
             }
         }
 

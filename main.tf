@@ -5,6 +5,11 @@ terraform {
       version = "~> 4.0"
     }
   }
+   backend "s3" {
+    bucket = "jenkins-project-backend-okutan"
+    key = "backend/tf-backend-jenkins.tfstate"
+    region = "us-east-1"
+  }
 }
 
 provider "aws" {
@@ -19,9 +24,7 @@ variable "user" {
   default = "okutan"
 }
 
-resource "aws_s3_bucket" "my_bucket" {
-  bucket = "jenkins-project-backend-okutan"
-}
+
 resource "aws_instance" "managed_nodes" {
   ami = "ami-016eb5d644c333ccb"
   count = 3
