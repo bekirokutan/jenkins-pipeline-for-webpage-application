@@ -94,7 +94,7 @@ pipeline{
                 sh 'ls -l'
                 sh 'ansible --version'
                 sh 'ansible-inventory --graph'
-                sh 'ansiblePlaybook credentialsId: '0613979b-62d8-4e3f-842f-797eeaa8016d', installation: 'ansible', playbook: 'playbook.yml''
+                ansiblePlaybook credentialsId: '0613979b-62d8-4e3f-842f-797eeaa8016d', installation: 'ansible', playbook: 'playbook.yml'
              }
         }
 
