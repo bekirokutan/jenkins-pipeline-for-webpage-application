@@ -87,6 +87,9 @@ pipeline{
 
         stage('Deploy the App') {
             steps {
+                timeout(time:5, unit:'DAYS'){
+                    input message:'Approve terminate'
+                }
                 echo 'Deploy the App'
                 sh 'ls -l'
                 sh 'ansible --version'
