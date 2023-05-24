@@ -87,14 +87,10 @@ pipeline{
 
         stage('Deploy the App') {
             steps {
-                timeout(time:5, unit:'DAYS'){
-                    input message:'Approve terminate'
-                }
                 echo 'Deploy the App'
                 sh 'ls -l'
                 sh 'ansible --version'
                 sh 'ansible-inventory --graph'
-                ansiblePlaybook credentialsId: '0613979b-62d8-4e3f-842f-797eeaa8016d', installation: 'ansible', playbook: 'playbook.yml'
              }
         }
 

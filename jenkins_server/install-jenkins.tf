@@ -74,7 +74,7 @@ resource "null_resource" "config" {
     provisioner "file" {
     # Do not forget to define your key file path correctly!
     source = "~/.ssh/first-key.pem"
-    destination = "/home/ec2-user/first-key.pem"
+    destination = "/var/lib/jenkins/first-key.pem"
   }
 }
 
