@@ -44,14 +44,10 @@
         - lvm2
         - unzip
 
-    - name: Add Docker repo
-      ansible.builtin.get_url:
-        url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/yum.repos.d/docker-ce.repo
 
     - name: Install Docker
-      ansible.builtin.package:
-        name: docker-ce
+      ansible.builtin.yum:
+        name: docker
         state: latest
 
     - name: Add user ec2-user to docker group

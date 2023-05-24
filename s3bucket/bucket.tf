@@ -14,5 +14,5 @@ provider "aws" {
 
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "jenkins-project-backend-okutan"
-  acl    = "private"
+  force_destroy =true
 }

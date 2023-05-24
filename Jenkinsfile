@@ -91,6 +91,7 @@ pipeline{
                 sh 'ls -l'
                 sh 'ansible --version'
                 sh 'ansible-inventory --graph'
+                sh 'ansible-playbook playbook.yml'
              }
         }
 

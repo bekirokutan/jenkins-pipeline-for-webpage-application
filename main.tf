@@ -40,6 +40,7 @@ resource "aws_instance" "managed_nodes" {
     user_data = <<-EOF
               #! /bin/bash
               dnf update -y
+              cd /var/lib/jenkins
               EOF
 }
 
